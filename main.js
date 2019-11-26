@@ -1,11 +1,12 @@
 const { Player } = require('./Classes/Player')
 const { AroundTheWorld } = require('./Classes/AroundTheWorld')
+const { ThreeHundredAndOne } = require('./Classes/ThreeHundredAndOne')
 const scanf = require('scanf')
 
 function initMainGame(){
     console.log("Entrez le nombre de joueurs :")
     let nbPlayers = scanf('%d')
-    console.log("Choisissez le mode de jeu (1/2/3)")
+    console.log("Choisissez le mode de jeu (1 : ATW / 2 : 301 / 3 : Cricket)")
     let gameMode = scanf('%d')
     initGame(nbPlayers, gameMode)
 }
@@ -24,8 +25,8 @@ function initGame(nbPlayers, gameMode){
             game.LaunchAroundTheWorld()
             break;
         case 2 :
-            console.log('game mode 2 : ' + players)
-            break;
+            game = new ThreeHundredAndOne(players)
+            game.launchThreeHundredAndOne()
         case 3 : 
             console.log('game mode 3 : ' + players)
             break;
